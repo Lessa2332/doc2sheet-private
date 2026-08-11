@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local development. NEVER commit the real file.
+GEMINI_API_KEY="paste-your-gemini-api-key-here"
+# Optional locally; production should set this to the exact deployed origin.
+# ALLOWED_ORIGIN="http://localhost:5173"

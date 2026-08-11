@@ -1,0 +1,20 @@
+name = "doc2sheet-private"
+compatibility_date = "2026-08-12"
+main = "worker/index.ts"
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[vars]
+GEMINI_MODEL = "gemini-3.6-flash"
+# Production: set the exact HTTPS origin of the deployed app.
+# ALLOWED_ORIGIN = "https://your-domain.example"
+
+[secrets]
+required = ["GEMINI_API_KEY"]
+
+[observability]
+enabled = true
+head_sampling_rate = 0
