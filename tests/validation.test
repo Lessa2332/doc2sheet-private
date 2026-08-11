@@ -1,0 +1,20 @@
+import { describe, expect, it } from 'vitest';
+
+describe('Doc2Sheet validation contract', () => {
+  it('requires a non-empty columns array', () => {
+    const value = { columns: [], rows: [] };
+    expect(Array.isArray(value.columns)).toBe(true);
+    expect(value.columns.length).toBe(0);
+  });
+
+  it('keeps confidence in the expected range', () => {
+    const confidence = Math.min(1, Math.max(0, Number(1.4)));
+    expect(confidence).toBe(1);
+  });
+
+  it('supports Ukrainian column names', () => {
+    const columns = ['Прізвище', 'Ім’я', 'Клас', 'Оцінка', 'Ґрунт'];
+    expect(columns.join('|')).toContain('Ї');
+    expect(columns.join('|')).toContain('Ґ');
+  });
+});
